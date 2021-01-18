@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: register-server
+  security:
+    user:
+      name: dev
+      password: devPasswd
+server:
+  port: 30001
+eureka:
+  instance:
+    # 使用IP地址的形式,如果设置了 eureka.instance.ip-address 属性,则使用该属性配置的IP,否则自动获取除环路IP外的第一个IP地址
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    # 定义服务续约任务（心跳）的调用间隔,单位：秒5
+    lease-renewal-interval-in-seconds: 100000
+    # 定义服务失效的时间,单位：秒
+    lease-expiration-duration-in-seconds: 2000000
+  client:
+    # 可以暂时配置true
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://dev:devPasswd@127.0.0.1:30001/eureka/
+  server:
+    # 是否启用注册中心的自我保护模式 Eureka 会统计15分钟之内心跳失败的比例低于85%将会触发保护机制,不剔除服务提供者,如果关闭服务 注册中心将不可用的实例正确剔除
+    enable-self-preservation: false
+    # 过期实例应该启动并运行的时间间隔,单位为毫秒,默认为60 * 1000
+    eviction-interval-timer-in-ms: 30000
+    # 在Eureka服务器获取不到集群里对等服务器上的实例时,需要等待的时间,单位为毫秒    ,默认为1000 * 60 * 5
+    wait-time-in-ms-when-sync-empty: 0
+
