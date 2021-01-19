@@ -1,0 +1,5 @@
+
+„"squid:ClassVariableVisibilityCheck
+"OMake age a static final constant or non-public and provide accessors if needed.(‘èÅ8ƒØ¥ñ.
+nsquid:S12066"PThis class overrides "hashCode()" and should therefore also override "equals()".(ğÜşŠ8ƒØ¥ñ.
+Ysquid:UnusedPrivateMethod)".Remove this unused private "getString" method.(¾Õg8ƒØ¥ñ.
